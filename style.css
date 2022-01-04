@@ -10,7 +10,7 @@
 .outer-wrapper {
   padding: 1rem 2rem;
   background-color: #002659;
-  height: 100vh;
+  height: 100%;
 }
 
 .outer-wrapper .inner-wrapper {
