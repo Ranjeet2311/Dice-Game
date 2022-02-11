@@ -13,15 +13,19 @@ const winningText = document.querySelector("#h1");
 const btn = document.querySelector("#btn");
 const reset = document.querySelector("#reset");
 const gameContainer = document.querySelector("#game-container");
-const scoreLabel1 = document.querySelector("#score1");
-const scoreLabel2 = document.querySelector("#score2");
+const totalScore1PlayerOne = document.querySelector("#total-score1");
+const totalScore1PlayerTwo = document.querySelector("#total-score2");
+
+var score1 = 0;
+var score2 = 0;
+totalScorePlOne = 0;
+totalScorePlTwo = 0;
+
+// -------Fix Scoring -------------------------?????--
 
 btn.addEventListener("click", () => {
   const randomNumberGenerator1 = Math.floor(Math.random() * 6);
   const randomNumberGenerator2 = Math.floor(Math.random() * 6);
-  // console.log(randomNumberGenerator1);
-  // console.log(randomNumberGenerator2);
-  // diceOne.innerHTML = `<img src=${diceImages[0].img}>`;
 
   function diceGenerator(numberGenerator, item) {
     if (numberGenerator === 0) {
@@ -42,28 +46,20 @@ btn.addEventListener("click", () => {
   diceGenerator(randomNumberGenerator1, diceOne);
   diceGenerator(randomNumberGenerator2, diceTwo);
 
-  var score1 = 0;
-  var score2 = 0;
-
   function decisionMaker(num1, num2) {
     if (num1 > num2) {
-      score1++;
-      scoreLabel1.innerHTML = `${score1++}`;
-      scoreLabel2.innerHTML = `0`;
+      scoreOne = totalScorePlOne++;
+      totalScore1PlayerOne.innerHTML = `${scoreOne}`;
 
       winningText.innerHTML =
         '<p> Player 1 "WON"  <span> <i class="fas fa-trophy"></i> </span> </p> ';
     } else if (num1 < num2) {
-      score2++;
-      scoreLabel2.innerHTML = `${score2++}`;
-      scoreLabel1.innerHTML = `0`;
+      scoreTwo = totalScorePlTwo++;
+      totalScore1PlayerTwo.innerHTML = `${scoreTwo}`;
 
       winningText.innerHTML =
         '<p> Player 2 "WON" <span> <i class="fas fa-trophy"></i> </span> </p>';
     } else {
-      scoreLabel2.innerHTML = `0`;
-      scoreLabel1.innerHTML = `0`;
-
       winningText.innerHTML =
         '<p1> "Draw" <span> <i class="fas fa-dragon"></i> </span> </p>';
     }
